@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 
 interface Props {
-  result: boolean;
+  result: string;
 }
 
 export default function ResultModal({ result }: Props) {
