@@ -1,15 +1,17 @@
+import { useEffect } from "react";
+
 interface Props {
   makeTr: Function;
   isAnswer: Function;
   clickAnswer: Function;
-  level: number;
+  round: number;
 }
 
-export default function Table({ makeTr, isAnswer, clickAnswer, level }: Props) {
+export default function Table({ makeTr, isAnswer, clickAnswer, round }: Props) {
   return (
     <table>
       <tbody>
-        {makeTr(level).map((el: [], idx: number) => {
+        {makeTr(round).map((el: [], idx: number) => {
           return (
             <tr key={idx}>
               {el.map((e, i) => {
