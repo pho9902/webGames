@@ -1,4 +1,4 @@
-import WrongWord from "../../components/WrongWord";
+import WrongWord from "components/WrongWord";
 
 export default function wrongword() {
   return <WrongWord />;
