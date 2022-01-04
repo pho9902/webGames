@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Table from "./Table";
 import ResultModal from "./ResultModal";
 
@@ -7,6 +7,7 @@ export default function EachLevel() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [result, setResult] = useState<string>("");
+  const [round, setRound] = useState<number>(1);
 
   let startTime = new Date();
 
@@ -31,17 +32,20 @@ export default function EachLevel() {
     return answer.includes(str);
   }
 
-  function makeTr(round: number): string[][] {
-    const problem: string[][] = Array.from({ length: levels[round] }, _ =>
-      Array.from({ length: levels[round] }, _ => words[round][0])
-    );
+  const makeTr = useCallback(
+    (round: number): string[][] => {
+      const problem: string[][] = Array.from({ length: levels[round] }, _ =>
+        Array.from({ length: levels[round] }, _ => words[round][0])
+      );
 
-    problem[Math.floor(Math.random() * levels[round])][
-      Math.floor(Math.random() * levels[round])
-    ] = words[round][1];
+      problem[Math.floor(Math.random() * levels[round])][
+        Math.floor(Math.random() * levels[round])
+      ] = words[round][1];
 
-    return problem;
-  }
+      return problem;
+    },
+    [words, levels]
+  );
 
   function clickAnswer() {
     let now = new Date();
@@ -49,7 +53,7 @@ export default function EachLevel() {
     if (now.getMinutes() - startTime.getMinutes() > 0) {
       setResult(
         `${now.getMinutes() - startTime.getMinutes()}분 ${
-          now.getSeconds() - startTime.getSeconds()
+          now.getSeconds() - startTime.getSeconds() + 60
         }초`
       );
     } else {
@@ -63,19 +67,19 @@ export default function EachLevel() {
   }
 
   useEffect(() => {
-    if (!router) return;
+    if (!router.isReady) return;
+    setRound(Number(router.query.pid));
   }, [router]);
 
   return (
     <div>
-      <div>ㅌㅇㅂ</div>
       <Table
         makeTr={makeTr}
         isAnswer={isAnswer}
         clickAnswer={clickAnswer}
-        level={Number(router.query.pid)}
+        round={round}
       />
-      {isOpen && <ResultModal result={Boolean(result)} />}
+      {isOpen && <ResultModal result={result} />}
     </div>
   );
 }
