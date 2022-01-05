@@ -1,3 +1,5 @@
+@import "./common.scss";
+
 .wrap {
   height: 100%;
 }
@@ -11,7 +13,7 @@
   padding: 8px;
   border-radius: 7px;
   margin: 10px;
-  background-color: rgb(252, 252, 252);
+  background-color: $buttonColor;
   &:hover {
     filter: brightness(97%);
     cursor: pointer;

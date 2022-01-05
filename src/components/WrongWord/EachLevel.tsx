@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
 import Table from "./Table";
 import ResultModal from "./ResultModal";
+import styles from "styles/WrongWord/EachLevel.module.scss";
 
 export default function EachLevel() {
   const router = useRouter();
@@ -72,7 +73,7 @@ export default function EachLevel() {
   }, [router]);
 
   return (
-    <div>
+    <div className={styles.wrap}>
       <Table
         makeTr={makeTr}
         isAnswer={isAnswer}
