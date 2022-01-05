@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import styles from "styles/WrongWord.module.scss";
 
 export default function WrongWord() {
   const router = useRouter();
