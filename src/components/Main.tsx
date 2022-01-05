@@ -1,10 +1,11 @@
 import Header from "./common/Header";
 import { useRouter } from "next/router";
+import styles from "styles/Main.module.scss";
 
 export default function Main() {
   const router = useRouter();
   return (
-    <div>
+    <div className={styles.wrap}>
       <Header />
       <div>
         <span onClick={() => router.push("/baseball")}>숫자야구</span> <br />
