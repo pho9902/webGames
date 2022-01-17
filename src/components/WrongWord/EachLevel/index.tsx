@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
-import Table from "./Table";
-import ResultModal from "./ResultModal";
-import styles from "styles/WrongWord/EachLevel.module.scss";
+import Table from "../Table";
+import ResultModal from "../ResultModal/ResultModal";
+import { Wrap } from "./style";
 
 export default function EachLevel() {
   const router = useRouter();
@@ -73,7 +73,7 @@ export default function EachLevel() {
   }, [router]);
 
   return (
-    <div className={styles.wrap}>
+    <Wrap>
       <Table
         makeTr={makeTr}
         isAnswer={isAnswer}
@@ -81,6 +81,6 @@ export default function EachLevel() {
         round={round}
       />
       {isOpen && <ResultModal result={result} />}
-    </div>
+    </Wrap>
   );
 }

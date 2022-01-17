@@ -53,9 +53,9 @@ export default function BaseBall() {
             onClick={() => {
               if (question.length !== 4) alert("질문 숫자는 4자리여야 합니다");
               else {
-                const obj: {} = {};
-                obj[question] = check(question);
-                array.push(obj);
+                // const obj: {} = {};
+                // obj[question] = check(question);
+                // array.push(obj);
                 // memo[question] = ;
                 // console.log(memo);
                 console.log(array);
