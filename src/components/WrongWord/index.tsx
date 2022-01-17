@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { Wrap, Level } from "./style";
+import { CommonOutLineBtn } from "styles/button";
 
 export default function WrongWord() {
   const router = useRouter();
@@ -12,12 +13,12 @@ export default function WrongWord() {
         {Array(5)
           .fill(0)
           .map((_, idx) => (
-            <span
+            <CommonOutLineBtn
               key={idx}
               onClick={() => router.push(`/wrongword/${idx + 1}`)}
             >
               레벨 {idx + 1}
-            </span>
+            </CommonOutLineBtn>
           ))}
       </Level>
     </Wrap>
