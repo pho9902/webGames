@@ -1,8 +1,6 @@
-.wrap {
-  margin: 0 auto;
-}
+import styled from "styled-components";
 
-.td {
+export const EachTd = styled.td`
   border: 1px solid;
   border-radius: 6px;
   padding: 13px;
@@ -12,4 +10,4 @@
     filter: brightness(97%);
     cursor: pointer;
   }
-}
+`;

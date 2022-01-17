@@ -1,16 +1,16 @@
-@import "styles/common.scss";
+import styled from "styled-components";
 
-.wrap {
+export const Wrap = styled.div`
   display: flex;
   flex-direction: column;
-}
+`;
 
-.levels {
+export const Level = styled.div`
   display: flex;
   span {
     padding: 5px;
     margin: 6px;
-    background-color: $buttonColor;
+    background-color: rgb(252, 252, 252);
     border: 1px solid lightgray;
     border-radius: 7px;
     &:hover {
@@ -18,4 +18,4 @@
       filter: brightness(97%);
     }
   }
-}
+`;

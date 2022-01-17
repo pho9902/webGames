@@ -1,4 +1,4 @@
-import styles from "styles/WrongWord/EachLevel.module.scss";
+import { EachTd } from "./style";
 
 interface Props {
   makeTr: Function;
@@ -16,13 +16,9 @@ export default function Table({ makeTr, isAnswer, clickAnswer, round }: Props) {
             <tr key={idx}>
               {el.map((e, i) => {
                 return (
-                  <td
-                    className={styles.td}
-                    key={i}
-                    onClick={() => isAnswer(e) && clickAnswer()}
-                  >
+                  <EachTd key={i} onClick={() => isAnswer(e) && clickAnswer()}>
                     {e}
-                  </td>
+                  </EachTd>
                 );
               })}
             </tr>

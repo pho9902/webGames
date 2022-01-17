@@ -1,14 +1,14 @@
 import { useRouter } from "next/router";
-import styles from "styles/WrongWord/WrongWord.module.scss";
+import { Wrap, Level } from "./style";
 
 export default function WrongWord() {
   const router = useRouter();
 
   return (
-    <div className={styles.wrap}>
+    <Wrap>
       <h2>다른글자 찾기</h2>
       <h3>레벨선택</h3>
-      <div className={styles.levels}>
+      <Level>
         {Array(5)
           .fill(0)
           .map((_, idx) => (
@@ -19,7 +19,7 @@ export default function WrongWord() {
               레벨 {idx + 1}
             </span>
           ))}
-      </div>
-    </div>
+      </Level>
+    </Wrap>
   );
 }
