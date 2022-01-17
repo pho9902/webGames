@@ -25,6 +25,9 @@ export default function Main() {
         >
           1 to 50
         </CommonOutLineBtn>
+        <CommonOutLineBtn border="red" onClick={() => router.push("/tzfe")}>
+          2048
+        </CommonOutLineBtn>
       </Body>
     </Wrap>
   );
