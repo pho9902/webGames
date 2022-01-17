@@ -19,6 +19,12 @@ export default function Main() {
         <CommonOutLineBtn border="red" onClick={() => router.push("/quiz")}>
           퀴즈(미완)
         </CommonOutLineBtn>
+        <CommonOutLineBtn
+          border="red"
+          onClick={() => router.push("/onetofifty")}
+        >
+          1 to 50
+        </CommonOutLineBtn>
       </Body>
     </Wrap>
   );
