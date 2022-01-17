@@ -24,10 +24,10 @@ export default function EachLevel() {
     2: ["흄", "흉"],
     3: ["먽", "멵"],
     4: ["닳", "닭"],
-    5: ["읊", "읇"],
+    5: ["읆", "읊"],
   };
 
-  const answer: string[] = ["야", "흉", "멵", "닭", "읇"];
+  const answer: string[] = ["야", "흉", "멵", "닭", "읊"];
 
   function isAnswer(str: string): boolean {
     return answer.includes(str);
