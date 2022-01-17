@@ -17,3 +17,7 @@ export const HeaderBody = styled.div`
   color: black;
   border-bottom: 0.1px solid #e9e9e9;
 `;
+
+export const Logo = styled.span`
+  cursor: pointer;
+`;
