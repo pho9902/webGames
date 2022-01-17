@@ -1,10 +1,12 @@
-import { Wrap, HeaderBody } from "./style";
+import { useRouter } from "next/router";
+import { Wrap, HeaderBody, Logo } from "./style";
 
 export default function Header() {
+  const router = useRouter();
   return (
     <Wrap>
       <HeaderBody>
-        <span>Web Games!!</span>
+        <Logo onClick={() => router.push("/")}>Web Games!!</Logo>
         <span>games</span>
       </HeaderBody>
     </Wrap>
