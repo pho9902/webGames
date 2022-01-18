@@ -7,27 +7,42 @@ export default function Main() {
   return (
     <Wrap>
       <Body>
-        <CommonOutLineBtn border="red" onClick={() => router.push("/baseball")}>
-          숫자야구(미완)
-        </CommonOutLineBtn>
-        <CommonOutLineBtn
-          border="red"
-          onClick={() => router.push("/wrongword")}
-        >
-          다른글자찾기
-        </CommonOutLineBtn>
-        <CommonOutLineBtn border="red" onClick={() => router.push("/quiz")}>
-          퀴즈(미완)
-        </CommonOutLineBtn>
-        <CommonOutLineBtn
-          border="red"
-          onClick={() => router.push("/onetofifty")}
-        >
-          1 to 50
-        </CommonOutLineBtn>
+        <div>
+          <h3>pc</h3>
+          <h3>mobile</h3>
+
+          <CommonOutLineBtn
+            border="red"
+            onClick={() => router.push("/onetofifty")}
+          >
+            1 to 50
+          </CommonOutLineBtn>
+
+          <h3>pc, mobile</h3>
+          <CommonOutLineBtn
+            border="red"
+            onClick={() => router.push("/baseball")}
+          >
+            숫자야구(미완)
+          </CommonOutLineBtn>
+
+          <CommonOutLineBtn
+            border="red"
+            onClick={() => router.push("/wrongword")}
+          >
+            다른글자찾기
+          </CommonOutLineBtn>
+
+          <CommonOutLineBtn border="red" onClick={() => router.push("/quiz")}>
+            퀴즈(미완)
+          </CommonOutLineBtn>
+        </div>
+
         <CommonOutLineBtn border="red" onClick={() => router.push("/tzfe")}>
-          2048
+          2048(미완)
         </CommonOutLineBtn>
+        <CommonOutLineBtn>테트리스</CommonOutLineBtn>
+        <CommonOutLineBtn>snake Game</CommonOutLineBtn>
       </Body>
     </Wrap>
   );
