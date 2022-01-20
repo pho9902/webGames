@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CellContainer, Body, Wrap } from "./style";
+import { CellContainer, Body, Wrap, H2, Btn } from "./style";
 
 let array: number[] = [];
 const secondData: number[] = [];
@@ -51,12 +51,16 @@ export default function OneToFifty() {
     <Wrap>
       <Body>
         {!gameFlag ? (
-          <button onClick={() => startGame()}>start</button>
+          <Btn onClick={() => startGame()}>start</Btn>
         ) : (
           numbers.map((num, idx) => {
             return (
-              <CellContainer onClick={() => onClickTd(num)} key={idx}>
-                {num !== 0 ? num : null}
+              <CellContainer
+                isBig={num > 25}
+                onClick={() => onClickTd(num)}
+                key={idx}
+              >
+                <H2>{num !== 0 ? num : null}</H2>
               </CellContainer>
             );
           })
