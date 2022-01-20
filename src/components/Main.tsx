@@ -9,6 +9,9 @@ export default function Main() {
       <Body>
         <div>
           <h3>pc</h3>
+          <CommonOutLineBtn border="red">테트리스</CommonOutLineBtn>
+          <CommonOutLineBtn border="red">snake Game</CommonOutLineBtn>
+
           <h3>mobile</h3>
 
           <CommonOutLineBtn
@@ -36,13 +39,11 @@ export default function Main() {
           <CommonOutLineBtn border="red" onClick={() => router.push("/quiz")}>
             퀴즈(미완)
           </CommonOutLineBtn>
-        </div>
 
-        <CommonOutLineBtn border="red" onClick={() => router.push("/tzfe")}>
-          2048(미완)
-        </CommonOutLineBtn>
-        <CommonOutLineBtn>테트리스</CommonOutLineBtn>
-        <CommonOutLineBtn>snake Game</CommonOutLineBtn>
+          <CommonOutLineBtn border="red" onClick={() => router.push("/tzfe")}>
+            2048(미완)
+          </CommonOutLineBtn>
+        </div>
       </Body>
     </Wrap>
   );
