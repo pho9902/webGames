@@ -1,4 +1,4 @@
-import { Cell, Tr, Wrap, Board } from "./style";
+import { Cell, Tr, Wrap, Board, Numbers } from "./style";
 import { useState } from "react";
 import {
   isMovingKey,
@@ -22,12 +22,9 @@ export default function TZFE() {
   const handleKeyPress = (e: React.KeyboardEvent) => {
     e.preventDefault();
     if (isMovingKey(e.keyCode) === false) return; // 상하좌우 키 인지 체크
-    let prevBoard = Array.from(gameBoard);
     let nextBoard = gameBoard;
-    if (e.keyCode === 39) {
-      nextBoard = moveRight(gameBoard);
-      console.log(123);
-    } else if (e.keyCode === 37) nextBoard = moveLeft(gameBoard);
+    if (e.keyCode === 39) nextBoard = moveRight(gameBoard);
+    else if (e.keyCode === 37) nextBoard = moveLeft(gameBoard);
     else if (e.keyCode === 38) nextBoard = moveTop(gameBoard);
     else if (e.keyCode === 40) nextBoard = moveBottom(gameBoard);
     setGameBoard(Array.from(nextBoard));
@@ -49,7 +46,12 @@ export default function TZFE() {
               {row.map((num, c) => {
                 return (
                   <Cell key={`Cell__${r}_${c}`}>
-                    <h2 key={`H2__${r}_${c}`}>{num !== 0 ? num : " "}</h2>
+                    <Numbers
+                      len={num.toString().length}
+                      key={`Numbers__${r}_${c}`}
+                    >
+                      {num !== 0 ? num : " "}
+                    </Numbers>
                   </Cell>
                 );
               })}

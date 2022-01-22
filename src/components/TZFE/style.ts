@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+interface Props {
+  len: number;
+}
+
 export const Tr = styled.div`
   display: flex;
 `;
@@ -8,6 +12,9 @@ export const Cell = styled.div`
   border: 1px solid;
   width: 80px;
   height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const Wrap = styled.div`
@@ -18,6 +25,8 @@ export const Wrap = styled.div`
 
 export const Board = styled.div`
   padding: 100px;
-  justify-content: center;
-  align-items: center;
+`;
+
+export const Numbers = styled.span<Props>`
+  font-size: ${props => (props.len > 3 ? "20px" : "25px")};
 `;
