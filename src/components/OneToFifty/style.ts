@@ -44,3 +44,7 @@ export const Btn = styled.button`
 
   color: red;
 `;
+
+export const Header = styled.div`
+  border: 1px solid;
+`;

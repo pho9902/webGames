@@ -21,7 +21,7 @@ export default function TZFE() {
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
     e.preventDefault();
-    if (isMovingKey(e.keyCode) === false) return; // 상하좌우 키 인지 체크
+    if (isMovingKey(e.keyCode) === false) return;
     let nextBoard = gameBoard;
     if (e.keyCode === 39) nextBoard = moveRight(gameBoard);
     else if (e.keyCode === 37) nextBoard = moveLeft(gameBoard);
