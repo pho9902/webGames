@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CellContainer, Body, Wrap, H2, Btn, Header } from "./style";
+import { CellContainer, Body, Wrap, H2, Btn, Header, TimerSpan } from "./style";
 import Timer from "./Timer";
 
 let array: number[] = [];
@@ -20,12 +20,13 @@ export default function OneToFifty() {
   const [nextNumbers, setNextNumbers] = useState<number[]>(secondData);
   const [gameFlag, setGameFlag] = useState(false);
   const [current, setCurrent] = useState(1);
+  const [time, setTime] = useState<number>(0);
 
   const onClickTd = (num: number) => {
     if (num === current) {
       if (num === 50) {
         endGame();
-        alert("걸린 시간 띄우기");
+        alert(`걸린시간 ${time}초`);
       }
       const index = numbers.indexOf(num);
 
@@ -49,10 +50,14 @@ export default function OneToFifty() {
 
   return (
     <Wrap>
+      <Header>
+        {!gameFlag ? (
+          <TimerSpan>0초</TimerSpan>
+        ) : (
+          <Timer time={time} setTime={setTime} />
+        )}
+      </Header>
       <Body>
-        <Header>
-          <Timer />
-        </Header>
         {!gameFlag ? (
           <Btn onClick={() => startGame()}>start</Btn>
         ) : (
