@@ -6,6 +6,7 @@ export default function Main() {
   const router = useRouter();
   return (
     <Wrap>
+      <h2>vercel 적용되나 확인</h2>
       <Body>
         <div>
           <h3>pc</h3>
