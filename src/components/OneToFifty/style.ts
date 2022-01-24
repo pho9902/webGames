@@ -10,6 +10,7 @@ export const Wrap = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 `;
 
 export const CellContainer = styled.div<Props>`
@@ -18,6 +19,8 @@ export const CellContainer = styled.div<Props>`
   align-items: center;
   color: black;
   border: 1px solid;
+  width: 80px;
+  height: 80px;
   background: ${props =>
     props.isBig ? "rgb(255, 255, 255)" : "rgb(248, 248, 248)"};
   cursor: pointer;
@@ -47,4 +50,12 @@ export const Btn = styled.button`
 
 export const Header = styled.div`
   border: 1px solid;
+`;
+
+export const TimerSpan = styled.span`
+  color: blue;
+  border: 1px lightgray;
+  padding: 8px;
+  margin: 12px;
+  font-size: 20px;
 `;
