@@ -30,3 +30,12 @@ export const Board = styled.div`
 export const Numbers = styled.span<Props>`
   font-size: ${props => (props.len > 3 ? "20px" : "25px")};
 `;
+
+export const Buttons = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+`;
