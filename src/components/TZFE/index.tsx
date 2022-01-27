@@ -1,4 +1,4 @@
-import { Cell, Tr, Wrap, Board, Numbers } from "./style";
+import { Cell, Tr, Wrap, Board, Numbers, Buttons } from "./style";
 import { useState } from "react";
 import {
   isMovingKey,
@@ -9,6 +9,7 @@ import {
   isGameOver,
   makeRandomNum,
 } from "./logic";
+import ArrowButton from "public/ArrowButton";
 
 const makeGameBoard = () => {
   const newBoard = Array.from(Array(4), () => Array(4).fill(0));
@@ -19,19 +20,46 @@ const makeGameBoard = () => {
 export default function TZFE() {
   const [gameBoard, setGameBoard] = useState<number[][]>(makeGameBoard());
 
-  const handleKeyPress = (e: React.KeyboardEvent) => {
-    e.preventDefault();
-    if (isMovingKey(e.keyCode) === false) return;
+  function handleKeyPress(e?: React.KeyboardEvent, direction?: string) {
     let nextBoard = gameBoard;
-    if (e.keyCode === 39) nextBoard = moveRight(gameBoard);
-    else if (e.keyCode === 37) nextBoard = moveLeft(gameBoard);
-    else if (e.keyCode === 38) nextBoard = moveTop(gameBoard);
-    else if (e.keyCode === 40) nextBoard = moveBottom(gameBoard);
+    if (!e) {
+      switch (direction) {
+        case "up":
+          nextBoard = moveTop(gameBoard);
+          break;
+        case "down":
+          nextBoard = moveBottom(gameBoard);
+          break;
+        case "left":
+          nextBoard = moveLeft(gameBoard);
+          break;
+        default:
+          nextBoard = moveRight(gameBoard);
+          break;
+      }
+    } else {
+      e.preventDefault();
+      if (isMovingKey(e.keyCode) === false) return;
+      switch (e.keyCode) {
+        case 38:
+          nextBoard = moveTop(gameBoard);
+          break;
+        case 40:
+          nextBoard = moveBottom(gameBoard);
+          break;
+        case 37:
+          nextBoard = moveLeft(gameBoard);
+          break;
+        default:
+          nextBoard = moveRight(gameBoard);
+          break;
+      }
+    }
     setGameBoard(Array.from(nextBoard));
     if (isGameOver(gameBoard)) {
       alert("game over");
     }
-  };
+  }
 
   return (
     <Wrap
@@ -58,6 +86,26 @@ export default function TZFE() {
             </Tr>
           );
         })}
+        <Buttons>
+          <ArrowButton
+            direction="up"
+            onClick={() => handleKeyPress(undefined, "up")}
+          />
+          <div>
+            <ArrowButton
+              direction="left"
+              onClick={() => handleKeyPress(undefined, "left")}
+            />
+            <ArrowButton
+              direction="right"
+              onClick={() => handleKeyPress(undefined, "right")}
+            />
+          </div>
+          <ArrowButton
+            direction="down"
+            onClick={() => handleKeyPress(undefined, "down")}
+          />
+        </Buttons>
       </Board>
     </Wrap>
   );
