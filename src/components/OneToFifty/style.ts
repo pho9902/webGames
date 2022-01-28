@@ -48,8 +48,9 @@ export const Btn = styled.button`
   color: red;
 `;
 
-export const Header = styled.div`
+export const TimerContainer = styled.div`
   border: 1px solid;
+  padding: 15px;
 `;
 
 export const TimerSpan = styled.span`

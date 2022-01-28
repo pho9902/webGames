@@ -1,5 +1,13 @@
 import { useState } from "react";
-import { CellContainer, Body, Wrap, H2, Btn, Header, TimerSpan } from "./style";
+import {
+  CellContainer,
+  Body,
+  Wrap,
+  H2,
+  Btn,
+  TimerContainer,
+  TimerSpan,
+} from "./style";
 import Timer from "./Timer";
 
 let array: number[] = [];
@@ -50,13 +58,6 @@ export default function OneToFifty() {
 
   return (
     <Wrap>
-      <Header>
-        {!gameFlag ? (
-          <TimerSpan>0초</TimerSpan>
-        ) : (
-          <Timer time={time} setTime={setTime} />
-        )}
-      </Header>
       <Body>
         {!gameFlag ? (
           <Btn onClick={() => startGame()}>start</Btn>
@@ -74,6 +75,13 @@ export default function OneToFifty() {
           })
         )}
       </Body>
+      <TimerContainer>
+        {!gameFlag ? (
+          <TimerSpan>0초</TimerSpan>
+        ) : (
+          <Timer time={time} setTime={setTime} />
+        )}
+      </TimerContainer>
     </Wrap>
   );
 }
