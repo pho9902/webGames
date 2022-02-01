@@ -6,7 +6,7 @@ export default function Main() {
   const router = useRouter();
   return (
     <Wrap>
-      <h2>Web Games!!</h2>
+      <h2>Web Games~!</h2>
       <Body>
         <div>
           <h3>pc</h3>
