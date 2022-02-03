@@ -1,3 +1,4 @@
+import { Wrap } from "components/style";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
@@ -37,7 +38,7 @@ export default function BaseBall() {
   }
 
   return (
-    <div>
+    <Wrap>
       <span>룰설명</span>
       <br />
       {isGaming ? (
@@ -86,6 +87,6 @@ export default function BaseBall() {
           START
         </button>
       )}
-    </div>
+    </Wrap>
   );
 }
