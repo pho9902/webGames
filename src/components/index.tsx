@@ -10,8 +10,8 @@ export default function Main() {
       <Body>
         <div>
           <h3>pc</h3>
-          <CommonOutLineBtn border="red">테트리스</CommonOutLineBtn>
-          <CommonOutLineBtn border="red">snake Game</CommonOutLineBtn>
+          <CommonOutLineBtn border="red">테트리스(미완)</CommonOutLineBtn>
+          <CommonOutLineBtn border="red">snake Game(미완)</CommonOutLineBtn>
 
           <h3>mobile</h3>
 
@@ -42,7 +42,7 @@ export default function Main() {
           </CommonOutLineBtn>
 
           <CommonOutLineBtn border="red" onClick={() => router.push("/tzfe")}>
-            2048(미완)
+            2048
           </CommonOutLineBtn>
         </div>
       </Body>
