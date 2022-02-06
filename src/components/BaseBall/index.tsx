@@ -43,7 +43,6 @@ export default function BaseBall() {
       <br />
       {isGaming ? (
         <div>
-          <span>{answer}</span>
           <input
             onChange={e => {
               setQuestion(e.target.value);
