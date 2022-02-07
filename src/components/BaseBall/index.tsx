@@ -1,14 +1,13 @@
 import { Wrap } from "components/style";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+const memo: {}[] = [];
 
 export default function BaseBall() {
   const router = useRouter();
   const [answer, setAnswer] = useState<string[]>(["", "", "", ""]);
   const [question, setQuestion] = useState<string>("");
   const [isGaming, setIsGaming] = useState<boolean>(false);
-
-  const array: {}[] = [];
 
   function returnAnswer(): string[] {
     const answer: string[] = [];
@@ -22,7 +21,6 @@ export default function BaseBall() {
 
   function check(input: string): string {
     const inputArr = input.split("");
-    if (inputArr === answer) return "Homerun!!";
     let S = 0;
     let B = 0;
 
@@ -33,9 +31,14 @@ export default function BaseBall() {
     });
 
     if (S + B === 0) return "Out!!";
+    if (S === 4) return "HomeRun~!!";
 
     return `${S} Strike ${B} Ball ~`;
   }
+
+  console.log(memo);
+
+  const questionInput = useRef();
 
   return (
     <Wrap>
@@ -44,33 +47,26 @@ export default function BaseBall() {
       {isGaming ? (
         <div>
           <input
-            onChange={e => {
-              setQuestion(e.target.value);
-            }}
+            ref={questionInput}
+            // onChange={e => {
+            //   setQuestion(e.target.value);
+            // }}
             placeholder="질문할 숫자 4자리를 입력하세요"
           />
           <button
             onClick={() => {
               if (question.length !== 4) alert("질문 숫자는 4자리여야 합니다");
               else {
-                // const obj: {} = {};
-                // obj[question] = check(question);
-                // array.push(obj);
-                // memo[question] = ;
-                // console.log(memo);
-                console.log(array);
+                setQuestion(questionInput.current.focus());
+                memo.push({ question: check(questionInput.current.focus()) });
               }
             }}
           >
             입력
           </button>
-          {/* <div>
-            {Object.keys(memo).map(el => {
-              <span>
-                {el} : {memo[el]}
-              </span>;
-            })}
-          </div> */}
+          <div>
+            <div>{memo}</div>
+          </div>
           <div>
             <button>재도전</button>
             <button onClick={() => router.push("/")}>메인화면</button>
