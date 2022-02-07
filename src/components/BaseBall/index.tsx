@@ -47,7 +47,7 @@ export default function BaseBall() {
       {isGaming ? (
         <div>
           <input
-            ref={questionInput}
+            // ref={questionInput}
             // onChange={e => {
             //   setQuestion(e.target.value);
             // }}
@@ -57,8 +57,8 @@ export default function BaseBall() {
             onClick={() => {
               if (question.length !== 4) alert("질문 숫자는 4자리여야 합니다");
               else {
-                setQuestion(questionInput.current.focus());
-                memo.push({ question: check(questionInput.current.focus()) });
+                // setQuestion(questionInput.current.focus());
+                // memo.push({ question: check(questionInput.current.focus()) });
               }
             }}
           >
