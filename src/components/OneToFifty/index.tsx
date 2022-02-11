@@ -58,11 +58,11 @@ export default function OneToFifty() {
 
   return (
     <Wrap>
-      <Body>
-        {!gameFlag ? (
-          <Btn onClick={() => startGame()}>start</Btn>
-        ) : (
-          numbers.map((num, idx) => {
+      {!gameFlag ? (
+        <Btn onClick={() => startGame()}>start</Btn>
+      ) : (
+        <Body>
+          {numbers.map((num, idx) => {
             return (
               <CellContainer
                 isBig={num > 25}
@@ -72,15 +72,11 @@ export default function OneToFifty() {
                 <H2>{num !== 0 ? num : null}</H2>
               </CellContainer>
             );
-          })
-        )}
-      </Body>
+          })}
+        </Body>
+      )}
       <TimerContainer>
-        {!gameFlag ? (
-          <TimerSpan>0초</TimerSpan>
-        ) : (
-          <Timer time={time} setTime={setTime} />
-        )}
+        {gameFlag && <Timer time={time} setTime={setTime} />}
       </TimerContainer>
     </Wrap>
   );
