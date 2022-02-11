@@ -44,12 +44,15 @@ export const H2 = styled.h2`
 
 export const Btn = styled.button`
   background: white;
-
+  cursor: pointer;
   color: red;
+  &:hover {
+    filter: brightness(97%);
+  }
+  padding: 20px;
 `;
 
 export const TimerContainer = styled.div`
-  border: 1px solid;
   padding: 15px;
 `;
 
