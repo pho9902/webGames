@@ -6,7 +6,7 @@ import {
   H2,
   Btn,
   TimerContainer,
-  TimerSpan,
+  Restart,
 } from "./style";
 import Timer from "./Timer";
 
@@ -51,6 +51,7 @@ export default function OneToFifty() {
     setNumbers(shuffle(array));
     setCurrent(1);
     setGameFlag(true);
+    setTime(0);
   };
   const endGame = () => {
     setGameFlag(false);
@@ -76,7 +77,12 @@ export default function OneToFifty() {
         </Body>
       )}
       <TimerContainer>
-        {gameFlag && <Timer time={time} setTime={setTime} />}
+        {gameFlag && (
+          <div>
+            <Timer time={time} setTime={setTime} />
+            <Restart onClick={() => setGameFlag(false)}>재시작</Restart>
+          </div>
+        )}
       </TimerContainer>
     </Wrap>
   );
