@@ -63,3 +63,11 @@ export const TimerSpan = styled.span`
   margin: 12px;
   font-size: 20px;
 `;
+
+export const Restart = styled.span`
+  color: lightgray;
+  cursor: pointer;
+  &:hover {
+    color: black;
+  }
+`;
