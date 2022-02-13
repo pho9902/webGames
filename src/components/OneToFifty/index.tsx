@@ -7,6 +7,7 @@ import {
   Btn,
   TimerContainer,
   Restart,
+  Rule,
 } from "./style";
 import Timer from "./Timer";
 
@@ -60,7 +61,10 @@ export default function OneToFifty() {
   return (
     <Wrap>
       {!gameFlag ? (
-        <Btn onClick={() => startGame()}>start</Btn>
+        <Rule>
+          <span>rule : 1부터 50까지의 무작위 숫자를 빠르게 누르세요</span>
+          <Btn onClick={() => startGame()}>start</Btn>
+        </Rule>
       ) : (
         <Body>
           {numbers.map((num, idx) => {
