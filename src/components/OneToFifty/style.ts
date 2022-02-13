@@ -4,6 +4,11 @@ interface Props {
   isBig: boolean;
 }
 
+export const Rule = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 export const Wrap = styled.div`
   width: 600px;
   height: 800px;
@@ -11,6 +16,7 @@ export const Wrap = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin: 0 auto;
 `;
 
 export const CellContainer = styled.div<Props>`
@@ -43,6 +49,7 @@ export const H2 = styled.h2`
 `;
 
 export const Btn = styled.button`
+  margin-top: 20px;
   background: white;
   cursor: pointer;
   color: red;
