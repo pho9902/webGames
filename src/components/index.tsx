@@ -1,50 +1,58 @@
 import { useRouter } from "next/router";
-import { CommonOutLineBtn } from "styles/button";
-import { Wrap, Body } from "./style";
+import { CommonFillBtn } from "styles/button";
+import { Wrap, Body, Category, Title } from "./style";
 
 export default function Main() {
   const router = useRouter();
   return (
     <Wrap>
-      <h2>Web Games~!</h2>
+      <Title>Web Games~!</Title>
       <Body>
-        <div>
+        <Category>
           <h3>pc</h3>
-          <CommonOutLineBtn border="red">테트리스(미완)</CommonOutLineBtn>
-          <CommonOutLineBtn border="red">snake Game(미완)</CommonOutLineBtn>
-
+          <CommonFillBtn background="#6660FF">테트리스(미완)</CommonFillBtn>
+          <CommonFillBtn background="#6660FF">snake Game(미완)</CommonFillBtn>
+        </Category>
+        <Category>
           <h3>mobile</h3>
-
-          <CommonOutLineBtn
-            border="red"
+          <CommonFillBtn
+            background="#9F7EFF"
             onClick={() => router.push("/onetofifty")}
           >
             1 to 50
-          </CommonOutLineBtn>
+          </CommonFillBtn>
+        </Category>
 
+        <Category>
           <h3>pc, mobile</h3>
-          <CommonOutLineBtn
-            border="red"
+          <CommonFillBtn
+            background="#0063F7"
             onClick={() => router.push("/baseball")}
           >
             숫자야구(미완)
-          </CommonOutLineBtn>
+          </CommonFillBtn>
 
-          <CommonOutLineBtn
-            border="red"
+          <CommonFillBtn
+            background="#0063F7"
             onClick={() => router.push("/wrongword")}
           >
             다른글자찾기
-          </CommonOutLineBtn>
+          </CommonFillBtn>
 
-          <CommonOutLineBtn border="red" onClick={() => router.push("/quiz")}>
+          <CommonFillBtn
+            background="#0063F7"
+            onClick={() => router.push("/quiz")}
+          >
             퀴즈(미완)
-          </CommonOutLineBtn>
+          </CommonFillBtn>
 
-          <CommonOutLineBtn border="red" onClick={() => router.push("/tzfe")}>
+          <CommonFillBtn
+            background="#0063F7"
+            onClick={() => router.push("/tzfe")}
+          >
             2048
-          </CommonOutLineBtn>
-        </div>
+          </CommonFillBtn>
+        </Category>
       </Body>
     </Wrap>
   );

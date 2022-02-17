@@ -13,3 +13,20 @@ export const CommonOutLineBtn = styled.button<{
     filter: brightness(97%);
   }
 `;
+
+export const CommonFillBtn = styled.button<{
+  border?: string;
+  background?: string;
+}>`
+  color: white;
+  padding: 5px;
+  margin: 6px;
+  background-color: ${props =>
+    !props.background ? "white" : props.background};
+  border: 1px solid ${props => (!props.border ? "lightgray" : props.border)};
+  border-radius: 7px;
+  &:hover {
+    cursor: pointer;
+    filter: brightness(150%);
+  }
+`;
