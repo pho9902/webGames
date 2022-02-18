@@ -11,3 +11,7 @@ export const EachTd = styled.td`
     cursor: pointer;
   }
 `;
+
+export const WrapTable = styled.table`
+  margin: 0 auto;
+`;
