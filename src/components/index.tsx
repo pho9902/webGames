@@ -17,7 +17,7 @@ export default function Main() {
           <h3>mobile</h3>
           <CommonFillBtn
             background="#9F7EFF"
-            onClick={() => router.push("/onetofifty")}
+            onClick={() => router.push("/1to50")}
           >
             1 to 50
           </CommonFillBtn>
@@ -48,7 +48,7 @@ export default function Main() {
 
           <CommonFillBtn
             background="#0063F7"
-            onClick={() => router.push("/tzfe")}
+            onClick={() => router.push("/2048")}
           >
             2048
           </CommonFillBtn>
