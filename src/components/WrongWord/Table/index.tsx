@@ -16,7 +16,11 @@ export default function Table({ makeTr, isAnswer, clickAnswer, round }: Props) {
             <tr key={idx}>
               {el.map((e, i) => {
                 return (
-                  <EachTd key={i} onClick={() => isAnswer(e) && clickAnswer()}>
+                  <EachTd
+                    round={round}
+                    key={i}
+                    onClick={() => isAnswer(e) && clickAnswer()}
+                  >
                     {e}
                   </EachTd>
                 );

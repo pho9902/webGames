@@ -1,10 +1,30 @@
 import styled from "styled-components";
 
-export const EachTd = styled.td`
+interface Props {
+  round: number;
+}
+
+function setWidth(round: number) {
+  console.log(round);
+  switch (round) {
+    case 1:
+      return "21px";
+    case 2:
+      return "19px";
+    case 3:
+      return "17px";
+    case 4:
+      return "15px";
+    case 5:
+      return "13px";
+  }
+}
+
+export const EachTd = styled.td<Props>`
   border: 1px solid;
   border-radius: 6px;
-  padding: 13px;
-  font-size: large;
+  padding : ${props => setWidth(props.round)}
+  font-size: ${props => setWidth(props.round)};
   background-color: white;
   &:hover {
     filter: brightness(97%);

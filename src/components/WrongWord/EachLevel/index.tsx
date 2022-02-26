@@ -70,7 +70,7 @@ export default function EachLevel() {
   useEffect(() => {
     if (!router.isReady) return;
     setRound(Number(router.query.pid));
-  }, [router]);
+  }, [router, round]);
 
   return (
     <Wrap>

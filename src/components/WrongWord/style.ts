@@ -22,3 +22,7 @@ export const Level = styled.div`
     }
   }
 `;
+
+export const Rule = styled.div`
+  margin-left: 15px;
+`;
