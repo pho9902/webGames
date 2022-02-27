@@ -73,11 +73,8 @@ export default function TZFE() {
             <Tr key={`div__${r}`} style={{ margin: "0 auto" }}>
               {row.map((num, c) => {
                 return (
-                  <Cell key={`Cell__${r}_${c}`}>
-                    <Numbers
-                      len={num.toString().length}
-                      key={`Numbers__${r}_${c}`}
-                    >
+                  <Cell key={`Cell__${r}_${c}`} num={num}>
+                    <Numbers num={num} key={`Numbers__${r}_${c}`}>
                       {num !== 0 ? num : " "}
                     </Numbers>
                   </Cell>
