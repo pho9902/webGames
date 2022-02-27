@@ -5,33 +5,33 @@ interface Props {
 }
 
 function setWidth(round: number) {
-  console.log(round);
   switch (round) {
     case 1:
-      return "21px";
+      return "100px;";
     case 2:
-      return "19px";
+      return "100px;";
     case 3:
-      return "17px";
+      return "50px;";
     case 4:
-      return "15px";
+      return "40px;";
     case 5:
-      return "13px";
+      return "25px;";
   }
 }
 
 export const EachTd = styled.td<Props>`
   border: 1px solid;
   border-radius: 6px;
-  padding : ${props => setWidth(props.round)}
-  font-size: ${props => setWidth(props.round)};
+  padding: 8px;
+  font-size: ${props => setWidth(props.round)}
   background-color: white;
   &:hover {
-    filter: brightness(97%);
+    filter: brightness(95%);
     cursor: pointer;
   }
 `;
 
 export const WrapTable = styled.table`
   margin: 0 auto;
+  margin-top: 15px;
 `;
