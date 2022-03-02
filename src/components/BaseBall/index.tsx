@@ -1,4 +1,4 @@
-import { Wrap } from "components/style";
+import { Wrap } from "components/Main/style";
 import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
 const memo: {}[] = [];
