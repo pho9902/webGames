@@ -29,7 +29,7 @@ export default function Main() {
             background="#0063F7"
             onClick={() => router.push("/baseball")}
           >
-            숫자야구(미완)
+            숫자야구
           </CommonFillBtn>
 
           <CommonFillBtn
