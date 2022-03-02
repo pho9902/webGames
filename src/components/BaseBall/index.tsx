@@ -1,13 +1,13 @@
-import { Wrap } from "components/Main/style";
+import { Record, RecordDiv, Wrap } from "./style";
 import { useRouter } from "next/router";
-import { useEffect, useRef, useState } from "react";
-const memo: {}[] = [];
+import { useState } from "react";
 
 export default function BaseBall() {
   const router = useRouter();
   const [answer, setAnswer] = useState<string[]>(["", "", "", ""]);
   const [question, setQuestion] = useState<string>("");
   const [isGaming, setIsGaming] = useState<boolean>(false);
+  const [record, setRecord] = useState<string[]>(["record"]);
 
   function returnAnswer(): string[] {
     const answer: string[] = [];
@@ -36,10 +36,6 @@ export default function BaseBall() {
     return `${S} Strike ${B} Ball ~`;
   }
 
-  console.log(memo);
-
-  const questionInput = useRef();
-
   return (
     <Wrap>
       <span>룰설명</span>
@@ -47,28 +43,29 @@ export default function BaseBall() {
       {isGaming ? (
         <div>
           <input
-            // ref={questionInput}
-            // onChange={e => {
-            //   setQuestion(e.target.value);
-            // }}
+            onChange={e => setQuestion(e.target.value)}
+            value={question}
             placeholder="질문할 숫자 4자리를 입력하세요"
           />
           <button
             onClick={() => {
               if (question.length !== 4) alert("질문 숫자는 4자리여야 합니다");
               else {
-                // setQuestion(questionInput.current.focus());
-                // memo.push({ question: check(questionInput.current.focus()) });
+                setQuestion(question);
+                setRecord([...record, `${question} : ${check(question)}`]);
+                setQuestion("");
               }
             }}
           >
             입력
           </button>
+          <RecordDiv>
+            {record.map(el => {
+              return <Record>{el}</Record>;
+            })}
+          </RecordDiv>
           <div>
-            <div>{memo}</div>
-          </div>
-          <div>
-            <button>재도전</button>
+            <button onClick={() => router.reload()}>재도전</button>
             <button onClick={() => router.push("/")}>메인화면</button>
           </div>
         </div>
