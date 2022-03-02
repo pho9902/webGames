@@ -60,8 +60,8 @@ export default function BaseBall() {
             입력
           </button>
           <RecordDiv>
-            {record.map(el => {
-              return <Record>{el}</Record>;
+            {record.map((el, idx) => {
+              return <Record key={idx}>{el}</Record>;
             })}
           </RecordDiv>
           <div>
