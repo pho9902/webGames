@@ -10,7 +10,9 @@ export const Wrap = styled.div`
 `;
 
 export const Record = styled.span`
-  color: red;
+  margin: 5px;
+  padding: 2px;
+  border-radius: 6px;
 `;
 
 export const RecordDiv = styled.div`
@@ -19,8 +21,16 @@ export const RecordDiv = styled.div`
   margin: 15px;
 `;
 
-// export const Container = styled.div`
-//   width: 100%;
-//   height: 100%;
-//   margin: 0 auto;
-// `;
+export const Input = styled.input`
+  border: 1px solid lightgray;
+  border-radius: 6px;
+  width: 250px;
+`;
+
+export const RuleDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  * {
+    margin: 2px;
+  }
+`;
