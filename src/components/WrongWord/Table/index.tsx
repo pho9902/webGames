@@ -1,4 +1,4 @@
-import { EachTd } from "./style";
+import { EachTd, WrapTable } from "./style";
 
 interface Props {
   makeTr: Function;
@@ -9,14 +9,18 @@ interface Props {
 
 export default function Table({ makeTr, isAnswer, clickAnswer, round }: Props) {
   return (
-    <table>
+    <WrapTable>
       <tbody>
         {makeTr(round).map((el: [], idx: number) => {
           return (
             <tr key={idx}>
               {el.map((e, i) => {
                 return (
-                  <EachTd key={i} onClick={() => isAnswer(e) && clickAnswer()}>
+                  <EachTd
+                    round={round}
+                    key={i}
+                    onClick={() => isAnswer(e) && clickAnswer()}
+                  >
                     {e}
                   </EachTd>
                 );
@@ -25,6 +29,6 @@ export default function Table({ makeTr, isAnswer, clickAnswer, round }: Props) {
           );
         })}
       </tbody>
-    </table>
+    </WrapTable>
   );
 }

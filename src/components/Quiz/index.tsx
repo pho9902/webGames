@@ -2,9 +2,9 @@ export default function Quiz() {
   return (
     <div>
       <h2>주제</h2>
-      <span>javascript</span>
-      <span>cs</span>
-      <span>넌센스</span>
+      <h5>javascript</h5>
+      <h5>cs</h5>
+      <h5>넌센스</h5>
     </div>
   );
 }

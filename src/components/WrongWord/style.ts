@@ -3,10 +3,13 @@ import styled from "styled-components";
 export const Wrap = styled.div`
   display: flex;
   flex-direction: column;
+  margin: 15px;
 `;
 
 export const Level = styled.div`
+  margin-left: 15px;
   display: flex;
+  flex-direction: column;
   span {
     padding: 5px;
     margin: 6px;
@@ -18,4 +21,8 @@ export const Level = styled.div`
       filter: brightness(97%);
     }
   }
+`;
+
+export const Rule = styled.div`
+  margin-left: 15px;
 `;
