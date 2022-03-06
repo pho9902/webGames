@@ -1,3 +1,12 @@
+import { useState } from "react";
+import BeforeStart from "./BeforeStart";
+import Questions from "./Questions";
+
 export default function EachCategory() {
-  return <div>하윙</div>;
+  const [isGaming, setIsGaming] = useState(false);
+  return (
+    <div>
+      {isGaming ? <Questions /> : <BeforeStart setIsGaming={setIsGaming} />}
+    </div>
+  );
 }
