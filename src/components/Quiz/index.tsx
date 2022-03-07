@@ -10,8 +10,12 @@ export default function Quiz() {
       <CommonOutLineBtn onClick={() => router.push("/quiz/javascript")}>
         javascript
       </CommonOutLineBtn>
-      <CommonOutLineBtn>cs</CommonOutLineBtn>
-      <CommonOutLineBtn>넌센스</CommonOutLineBtn>
+      <CommonOutLineBtn onClick={() => router.push("/quiz/cs")}>
+        cs
+      </CommonOutLineBtn>
+      <CommonOutLineBtn onClick={() => router.push("/quiz/nonsense")}>
+        넌센스
+      </CommonOutLineBtn>
     </div>
   );
 }
