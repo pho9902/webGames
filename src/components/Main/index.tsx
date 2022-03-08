@@ -41,16 +41,23 @@ export default function Main() {
 
           <CommonFillBtn
             background="#0063F7"
-            onClick={() => router.push("/quiz")}
+            onClick={() => router.push("/2048")}
           >
-            퀴즈(미완)
+            2048
           </CommonFillBtn>
 
           <CommonFillBtn
             background="#0063F7"
-            onClick={() => router.push("/2048")}
+            onClick={() => router.push("/wordCarpet")}
           >
-            2048
+            단어발판(미완)
+          </CommonFillBtn>
+
+          <CommonFillBtn
+            background="#0063F7"
+            onClick={() => router.push("/quiz")}
+          >
+            퀴즈(미완)
           </CommonFillBtn>
         </Category>
       </Body>
