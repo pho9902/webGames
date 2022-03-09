@@ -23,7 +23,17 @@ export default function WordCarpet() {
           </CommonOutLineBtn>
         </div>
       ) : (
-        <div>하이</div>
+        <div>
+          <span>주제</span>
+          <input />
+          <button>입력</button>
+          <div>
+            <div>플레이어1</div>
+            <div>플레이어2</div>
+            <div>플레이어3</div>
+            <div>유저</div>
+          </div>
+        </div>
       )}
     </Wrap>
   );
