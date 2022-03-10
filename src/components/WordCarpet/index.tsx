@@ -1,14 +1,36 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CommonOutLineBtn } from "styles/button";
-import { Wrap } from "./styles";
+import { Wrap, RuleDiv, GameBoard, EachPlayer } from "./styles";
+import { RiUser3Line, RiUser3Fill } from "react-icons/ri";
 
 export default function WordCarpet() {
+  const [level, setLevel] = useState(0);
   const [isGaming, setIsGaming] = useState(false);
+  const [subject, setSubject] = useState();
+  const carpet = {
+    user: [0, 0, 0],
+    player1: [0, 0, 0],
+    player2: [0, 0, 0],
+    player3: [0, 0, 0],
+  };
+
+  const [round, setRound] = useState(0);
+
+  const onClickStart = () => {
+    setIsGaming(true);
+    setRound(1);
+  };
+
+  // const roundOver = level => {
+  //   for (let el in carpet) {
+  //     carpet.el = Array(carpet[el].length - level).fill(0);
+  //   }
+  // };
 
   return (
     <Wrap>
       {!isGaming ? (
-        <div>
+        <RuleDiv>
           <span>룰 설명 </span>
           <span>주제가 주어집니다.</span>
           <span>주제에 맞는 단어를 입력합니다.</span>
@@ -17,22 +39,58 @@ export default function WordCarpet() {
             추가됩니다.
           </span>
           <span>발판은 매 라운드 마다 레벨별로 다른 갯수 줄어듭니다.</span>
-
-          <CommonOutLineBtn onClick={() => setIsGaming(true)}>
-            시작
+          <CommonOutLineBtn onClick={() => setLevel(1)}>
+            level 1
           </CommonOutLineBtn>
-        </div>
+          <CommonOutLineBtn onClick={() => setLevel(2)}>
+            level 2
+          </CommonOutLineBtn>
+          <CommonOutLineBtn onClick={() => setLevel(3)}>
+            level 3
+          </CommonOutLineBtn>
+          {level ? (
+            <CommonOutLineBtn onClick={onClickStart}>시작</CommonOutLineBtn>
+          ) : null}
+        </RuleDiv>
       ) : (
         <div>
           <span>주제</span>
           <input />
           <button>입력</button>
-          <div>
-            <div>플레이어1</div>
-            <div>플레이어2</div>
-            <div>플레이어3</div>
-            <div>유저</div>
-          </div>
+          <GameBoard>
+            <div>
+              <RiUser3Line />
+              <EachPlayer>
+                {carpet.user.map((el, idx) => (
+                  <span key={idx}>발판</span>
+                ))}
+              </EachPlayer>
+            </div>
+            <div>
+              <RiUser3Fill />
+              <EachPlayer>
+                {carpet.player1.map((el, idx) => (
+                  <span key={idx}>발판</span>
+                ))}
+              </EachPlayer>
+            </div>
+            <div>
+              <RiUser3Fill />
+              <EachPlayer>
+                {carpet.player2.map((el, idx) => (
+                  <span key={idx}>발판</span>
+                ))}
+              </EachPlayer>
+            </div>
+            <div>
+              <RiUser3Fill />
+              <EachPlayer>
+                {carpet.player3.map((el, idx) => (
+                  <span key={idx}>발판</span>
+                ))}
+              </EachPlayer>
+            </div>
+          </GameBoard>
         </div>
       )}
     </Wrap>
