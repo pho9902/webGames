@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { CommonOutLineBtn } from "styles/button";
 import { Wrap, RuleDiv, GameBoard, EachPlayer } from "./styles";
 import { RiUser3Line, RiUser3Fill } from "react-icons/ri";
+import { setMainSubject, SUBJECT } from "components/common/WordDatas/subjects";
 
 export default function WordCarpet() {
   const [level, setLevel] = useState(0);
@@ -19,13 +20,14 @@ export default function WordCarpet() {
   const onClickStart = () => {
     setIsGaming(true);
     setRound(1);
+    // setSubject(() => setMainSubject("subject1"));
   };
 
-  // const roundOver = level => {
-  //   for (let el in carpet) {
-  //     carpet.el = Array(carpet[el].length - level).fill(0);
-  //   }
-  // };
+  // 입력을 누르면 라운드가 넘어감
+  // 유저의 답이 정답 배열안에 포함돼 있으면 정답 문자열 length 만큼 발판 추가
+  // 다른 플레이어 들은 10%의 확률로 틀린 답, 90%의 확률로 정답배열에서 무작위 정답 도출
+  // 레벨 * 2 만큼 매 라운드 배열이 줄어든다.
+  // 먼저 발판의 개수가 1보다 작아지는 순서대로 패배 (같이 떨어지면 공동순위 부여 생각해야댐)
 
   return (
     <Wrap>
@@ -55,6 +57,7 @@ export default function WordCarpet() {
       ) : (
         <div>
           <span>주제</span>
+          <span>{subject}</span>
           <input />
           <button>입력</button>
           <GameBoard>
