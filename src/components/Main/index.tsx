@@ -4,6 +4,8 @@ import { Wrap, Body, Category, Title } from "./style";
 
 export default function Main() {
   const router = useRouter();
+
+  // 추가할 게임 목록 : 테트리스, snake
   return (
     <Wrap>
       <Title>Web Games~!</Title>
@@ -50,14 +52,14 @@ export default function Main() {
             background="#0063F7"
             onClick={() => router.push("/wordCarpet")}
           >
-            단어발판(미완)
+            단어발판(미완/1)
           </CommonFillBtn>
 
           <CommonFillBtn
             background="#0063F7"
             onClick={() => router.push("/quiz")}
           >
-            퀴즈(미완)
+            퀴즈(미완/2)
           </CommonFillBtn>
         </Category>
       </Body>
