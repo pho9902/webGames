@@ -1,13 +1,20 @@
 import { useEffect, useState } from "react";
 import { CommonOutLineBtn } from "styles/button";
-import { Wrap, RuleDiv, GameBoard, EachPlayer } from "./styles";
+import {
+  Wrap,
+  RuleDiv,
+  GameBoard,
+  EachPlayer,
+  PlayerDiv,
+  SubjectDiv,
+} from "./styles";
 import { RiUser3Line, RiUser3Fill } from "react-icons/ri";
 import { setMainSubject, SUBJECT } from "components/common/WordDatas/subjects";
 
 export default function WordCarpet() {
   const [level, setLevel] = useState(0);
   const [isGaming, setIsGaming] = useState(false);
-  const [subject, setSubject] = useState();
+  const [subject, setSubject] = useState("ㅁㄴㅇㄹ");
   const carpet = {
     user: [0, 0, 0],
     player1: [0, 0, 0],
@@ -56,43 +63,45 @@ export default function WordCarpet() {
         </RuleDiv>
       ) : (
         <div>
-          <span>주제</span>
-          <span>{subject}</span>
+          <SubjectDiv>
+            <span>주제</span>
+            <span>{subject}</span>
+          </SubjectDiv>
           <input />
           <button>입력</button>
           <GameBoard>
-            <div>
+            <PlayerDiv>
               <RiUser3Line />
               <EachPlayer>
                 {carpet.user.map((el, idx) => (
                   <span key={idx}>발판</span>
                 ))}
               </EachPlayer>
-            </div>
-            <div>
+            </PlayerDiv>
+            <PlayerDiv>
               <RiUser3Fill />
               <EachPlayer>
                 {carpet.player1.map((el, idx) => (
                   <span key={idx}>발판</span>
                 ))}
               </EachPlayer>
-            </div>
-            <div>
+            </PlayerDiv>
+            <PlayerDiv>
               <RiUser3Fill />
               <EachPlayer>
                 {carpet.player2.map((el, idx) => (
                   <span key={idx}>발판</span>
                 ))}
               </EachPlayer>
-            </div>
-            <div>
+            </PlayerDiv>
+            <PlayerDiv>
               <RiUser3Fill />
               <EachPlayer>
                 {carpet.player3.map((el, idx) => (
                   <span key={idx}>발판</span>
                 ))}
               </EachPlayer>
-            </div>
+            </PlayerDiv>
           </GameBoard>
         </div>
       )}
