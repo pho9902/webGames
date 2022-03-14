@@ -15,6 +15,8 @@ export default function WordCarpet() {
   const [level, setLevel] = useState(0);
   const [isGaming, setIsGaming] = useState(false);
   const [subject, setSubject] = useState("ㅁㄴㅇㄹ");
+  const wholeRound = Array(Object.keys(SUBJECT).length).fill(0);
+  console.log(setMainSubject(Object.keys(SUBJECT)[0]));
   const carpet = {
     user: [0, 0, 0],
     player1: [0, 0, 0],
@@ -27,7 +29,7 @@ export default function WordCarpet() {
   const onClickStart = () => {
     setIsGaming(true);
     setRound(1);
-    // setSubject(() => setMainSubject("subject1"));
+    // let idx = setSubject(() => setMainSubject(Object.keys(SUBJECT)[idx]));
   };
 
   // 입력을 누르면 라운드가 넘어감
