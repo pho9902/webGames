@@ -50,6 +50,13 @@ export default function Main() {
 
           <CommonFillBtn
             background="#0063F7"
+            onClick={() => router.push("/ladder")}
+          >
+            사다리타기 (미완 / 개발중)
+          </CommonFillBtn>
+
+          <CommonFillBtn
+            background="#0063F7"
             onClick={() => router.push("/wordCarpet")}
           >
             단어발판(미완/1)
