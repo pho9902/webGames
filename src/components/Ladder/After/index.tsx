@@ -89,7 +89,7 @@ export default function After({ count }: Props) {
 
   return users.map((el, idx) => {
     return (
-      <div>
+      <div key={idx}>
         {el}
         {setAnimalTag(sortedAnimal[idx])}
       </div>
