@@ -6,6 +6,13 @@ interface Props {
   setIsPlay: Function;
 }
 export default function Before({ count, setCount, setIsPlay }: Props) {
+  const onClickStart = () => {
+    if (count >= 18) {
+      alert("최대 숫자는 17입니다.");
+      return;
+    }
+    setIsPlay(true);
+  };
   return (
     <>
       <div>
@@ -16,9 +23,13 @@ export default function Before({ count, setCount, setIsPlay }: Props) {
         )}
 
         <input value={count} onChange={e => setCount(Number(e.target.value))} />
-        <button onClick={() => setCount(count + 1)}>플러스</button>
+        {count === 17 ? (
+          <button>플러스</button>
+        ) : (
+          <button onClick={() => setCount(count + 1)}>플러스</button>
+        )}
       </div>
-      <CommonFillBtn background="orange" onClick={() => setIsPlay(true)}>
+      <CommonFillBtn background="orange" onClick={() => onClickStart()}>
         Start!
       </CommonFillBtn>
     </>
