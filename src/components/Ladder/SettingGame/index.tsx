@@ -5,7 +5,7 @@ interface Props {
   setCount: Function;
   setIsPlay: Function;
 }
-export default function Before({ count, setCount, setIsPlay }: Props) {
+export default function SettingGame({ count, setCount, setIsPlay }: Props) {
   const onClickStart = () => {
     if (count >= 18) {
       alert("최대 숫자는 17입니다.");
