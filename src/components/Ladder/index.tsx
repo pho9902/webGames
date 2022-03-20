@@ -10,8 +10,7 @@ export default function Ladder() {
   return (
     <Wrap>
       {isPlay ? (
-        // <GameBoard count={count} />
-        <div>사다리</div>
+        <GameBoard count={count} />
       ) : (
         <SettingGame count={count} setCount={setCount} setIsPlay={setIsPlay} />
       )}

@@ -18,12 +18,13 @@ import {
   GiNinjaHead,
   GiMechaHead,
 } from "react-icons/gi";
+import {Goal, Ladder, Wrap, EachIcon} from './style'
 
 interface Props {
   count: number;
 }
 
-export default function After({ count }: Props) {
+export default function GameBoard({ count }: Props) : JSX.Element {
   const [users, setUsers] = useState<number[]>(Array(count).fill(0));
 
   const animals = [
@@ -57,42 +58,47 @@ export default function After({ count }: Props) {
       case "dog":
         return <GiLabradorHead />;
       case "raccoon":
-        <GiRaccoonHead />;
+        return <GiRaccoonHead />;
       case "camel":
-        <GiCamelHead />;
+        return <GiCamelHead />;
       case "fox":
-        <GiFox />;
+        return <GiFox />;
       case "tiger":
-        <GiTigerHead />;
+        return <GiTigerHead />;
       case "wolf":
-        <GiWolfHead />;
+        return <GiWolfHead />;
       case "dragon":
-        <GiSpikedDragonHead />;
+        return <GiSpikedDragonHead />;
       case "deer":
-        <GiDeerHead />;
+        return <GiDeerHead />;
       case "hyena":
-        <GiHyenaHead />;
+        return <GiHyenaHead />;
       case "kenku":
-        <GiKenkuHead />;
+        return <GiKenkuHead />;
       case "lynx":
-        <GiLynxHead />;
+        return <GiLynxHead />;
       case "triton":
-        <GiTritonHead />;
+        return <GiTritonHead />;
       case "ninja":
-        <GiNinjaHead />;
+        return <GiNinjaHead />;
       case "robot":
-        <GiMechaHead />;
+        return <GiMechaHead />;
     }
   };
 
   const sortedAnimal = animals.sort(() => Math.random() - 0.5);
 
-  return users.map((el, idx) => {
-    return (
-      <div key={idx}>
-        {el}
-        {setAnimalTag(sortedAnimal[idx])}
-      </div>
-    );
-  });
+  return ( 
+  <Wrap>
+    {users.map((el, idx) => {
+      return (
+        <EachIcon key={idx}>
+          {setAnimalTag(sortedAnimal[idx])}
+          <Ladder />
+          <Goal />
+        </EachIcon>
+      );
+    })}
+  </Wrap>
+  )
 }
