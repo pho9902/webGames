@@ -18,14 +18,16 @@ import {
   GiNinjaHead,
   GiMechaHead,
 } from "react-icons/gi";
-import {Goal, Ladder, Wrap, EachIcon} from './style'
+import { CommonOutLineBtn } from "styles/button";
+import { Goal, Ladder, Wrap, EachIcon, Top, Modal } from "./style";
 
 interface Props {
   count: number;
 }
 
-export default function GameBoard({ count }: Props) : JSX.Element {
+export default function GameBoard({ count }: Props): JSX.Element {
   const [users, setUsers] = useState<number[]>(Array(count).fill(0));
+  const [setting, setSetting] = useState<boolean>(false);
 
   const animals = [
     "rabbit",
@@ -88,17 +90,28 @@ export default function GameBoard({ count }: Props) : JSX.Element {
 
   const sortedAnimal = animals.sort(() => Math.random() - 0.5);
 
-  return ( 
-  <Wrap>
-    {users.map((el, idx) => {
-      return (
-        <EachIcon key={idx}>
-          {setAnimalTag(sortedAnimal[idx])}
-          <Ladder />
-          <Goal />
-        </EachIcon>
-      );
-    })}
-  </Wrap>
-  )
+  return (
+    <Wrap>
+      <Top>
+        {users.map((el, idx) => {
+          return (
+            <EachIcon key={idx}>
+              {setAnimalTag(sortedAnimal[idx])}
+              <Ladder />
+              <Goal placeholder="입력" />
+            </EachIcon>
+          );
+        })}
+      </Top>
+
+      {!setting && (
+        <>
+          <CommonOutLineBtn onClick={() => setSetting(true)}>
+            START!
+          </CommonOutLineBtn>
+          <Modal>입력을 마친 뒤 시작버튼을 눌러주세요</Modal>
+        </>
+      )}
+    </Wrap>
+  );
 }
